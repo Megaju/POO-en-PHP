@@ -1,6 +1,3 @@
-<?php
-require 'Personnage.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,26 +12,8 @@ require 'Personnage.php';
     </header>
     <nav>
         <ul>
-            <li><a href="#">LIEN</a></li>
-            <li><a href="#">LIEN</a></li>
-            <li><a href="#">LIEN</a></li>
-            <li><a href="#">LIEN</a></li>
+            <li><a href="testpersonnages.php">Personnages</a></li>
         </ul>
     </nav>
-    <section>
-        <h2>Personnages</h2>
-
-        <?php
-
-        // création d'un nouveau personnage, ici Batman !
-        $batman = new Personnage;
-        var_dump($batman->regenerer());
-
-        ?>
-
-    </section>
-    <footer>
-
-    </footer>
 </body>
 </html>
