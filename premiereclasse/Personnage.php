@@ -58,12 +58,21 @@ class Personnage {
         return $this->life <= 0;
     }
 
+    // empêcher de voir la vie descendre en-dessous de 0
+    private function life_no_negatif() {
+        if ($this->life < 0) {
+            $this->life = 0;
+        }
+    }
+
     // fonction d'attaque
     public function attack($target) {
         echo '<p>'.$this->name.' attaque '.$target->name.'</p>';
 
         // attaque
         $target->life -= $this->atk;
+
+        $target->life_no_negatif();
 
         // on vérifie si la cible est morte
         if ($target->death()) {
