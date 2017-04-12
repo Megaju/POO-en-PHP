@@ -3,6 +3,7 @@
 include '../head.php';
 
 require 'form.php';
+require 'text.php';
 
 $form = new Form(array(
     'username' => 'Megaju'
@@ -25,3 +26,7 @@ echo $form->input('password');
 echo $form->submit();
 ?>
 </form>
+
+<?php
+
+echo Text::withZero(4);
