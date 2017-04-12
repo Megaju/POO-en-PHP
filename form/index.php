@@ -14,11 +14,14 @@ echo $form->input('username');
 echo $form->input('password');
 echo $form->submit();
 
-$second_form = new Form();
+$form = new Form($_POST);
 
-echo $second_form->input('newformtest');
-echo $second_form->input('newformtest');
-echo $second_form->input('newformtest');
-echo $second_form->input('newformtest');
-echo $second_form->input('newformtest');
-echo $second_form->submit();
+?>
+
+<form action="#" method="post">
+<?php
+echo $form->input('username');
+echo $form->input('password');
+echo $form->submit();
+?>
+</form>
