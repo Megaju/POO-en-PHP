@@ -2,14 +2,42 @@
 
 class Personnage {
     // attrivuts du personnage
-    public $life = 100;
-    public $life_max = 100;
-    public $atk = 20;
-    public $name;
+    private $life = 100;
+    private $life_max = 100;
+    private $atk = 20;
+    private $name;
 
     // constructeur
     public function __construct($name) {
         $this->name = $name;
+    }
+
+    // GETTEURS
+    public function getLife() {
+        return $this->life;
+    }
+    public function getLifeMax() {
+        return $this->life_max;
+    }
+    public function getAtk() {
+        return $this->atk;
+    }
+    public function getName() {
+        return $this->name;
+    }
+
+    // SETTEURS
+    public function setLife($life) {
+        return $this->life = $life;
+    }
+    public function setLifeMax($life_max) {
+        return $this->life_max = $life_max;
+    }
+    public function setAtk($atk) {
+        return $this->atk = $atk;
+    }
+    public function setName($name) {
+        return $this->name = $name;
     }
 
     // description du personnage dans une table
@@ -25,9 +53,9 @@ class Personnage {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>'.$this->name.'</td>
-                    <td>'.$this->life_max.'</td>
-                    <td>'.$this->atk.'</td>
+                    <td>'.$this->getName().'</td>
+                    <td>'.$this->getLifeMax().'</td>
+                    <td>'.$this->getAtk().'</td>
                   </tr>
                 </tbody>
               </table>';
@@ -37,40 +65,43 @@ class Personnage {
     public function regenerate($value) {
         // SI sa vie n'est pas au max
         // ALORS on l'augmente de 5PV
-        if ($this->life < $this->life_max) {
-            echo '<p>Il reste '.$this->life.' de vie sur '.$this->life_max.' à '.$this->name.'.</p>';
-            $this->life += $value;
-            echo '<p>'.$this->name.' récupère '.$value.'PV.</p>';
-            echo '<p>Il reste '.$this->life.' de vie sur '.$this->life_max.' à '.$this->name.'.</p>';
+        if ($this->getLife() < $this->getLifeMax()) {
+            echo '<p>Il reste '.$this->getLife() .' de vie sur '.$this->getLifeMax() .' à '.$this->getName() .'.</p>';
+
+            setLife($this->getLife() += $value);
+
+            echo '<p>'.$this->getName().' récupère '.$value.'PV.</p>';
+            echo '<p>Il reste '.$this->getLife() .' de vie sur '.$this->getLifeMax() .' à '.$this->getName() .'.</p>';
             // SI la vie dépasse la vie max
             // ALORS on l'a rend égale à la vie max
-            if ($this->life > $this->life_max) {
-                $this->life = $this->life_max;
+            if ($this->getLife() > $this->getLifeMax() ) {
+                setLife();
             }
         } else {
             // SINON on ne fait rien
-            echo '<p>'.$this->name.' a déjà toute sa vie</p>';
+            echo '<p>'.$this->getName() .' a déjà toute sa vie</p>';
         }
     }
 
     // tester si le personnage est mort
     public function death() {
-        return $this->life <= 0;
+        return $this->getLife() <= 0;
     }
 
     // empêcher de voir la vie descendre en-dessous de 0
     private function life_no_negatif() {
-        if ($this->life < 0) {
-            $this->life = 0;
+        if ($this->getLife() < 0) {
+            // ERROR
+            //getLife() = 0;
         }
     }
 
     // fonction d'attaque
     public function attack($target) {
-        echo '<p>'.$this->name.' attaque '.$target->name.'</p>';
+        echo '<p>'.$this->getName() .' attaque '.$target->name.'</p>';
 
         // attaque
-        $target->life -= $this->atk;
+        $target->life -= $this->getAtk()  ;
 
         $target->life_no_negatif();
 
