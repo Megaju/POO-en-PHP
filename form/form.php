@@ -1,34 +1,55 @@
 <?php
-
+/**
+ * Class Form
+ * Permet de créer des formulaires rapidement et simplement
+ */
 class Form {
-
+    /**
+     * @var array Données utilisés par le formulaire
+     */
     private $data = [];
+
+    /**
+     * @var string Tag utilisé pour entourer les champs
+     */
     public $surround = 'p';
 
-    // constructeur
+    /**
+     * @param array Données utilisés par le formulaire
+     */
     public function __construct($data = array()) {
         $this->data = $data;
     }
 
-    // fonction pour entrourer nos balise input d'une autre balise, 'p' pour notre exemple.
+    /**
+     * @param $html string Code html entouré
+     * @return string
+     */
     private function surround($html) {
         return "<{$this->surround}>{$html}</{$this->surround}>";
     }
 
-    // récupérer la valeur de l'index souhaité
+    /**
+     * @param $index string Index de la valeur à récupérer
+     * @return string
+     */
     private function getValue($index) {
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 
-    // fonction pour créer nos input
-    // getValue() nous sert à récupérer la valeur de l'index afin d'afficher cette valeur en préremplissant le champ, et rien, si rien n'a été précisé dans la vue.
+    /**
+     * @param $name string
+     * @return string
+     */
     public function input($name) {
         return $this->surround(
             '<input type="text" name="'.$name.'" value="'.$this->getValue($name).'">'
         );
     }
 
-    // fonction pour créer notre boutton submit
+    /**
+     * @return string
+     */
     public function submit() {
         return $this->surround('<button type="submit">Envoyer</button>');
     }
