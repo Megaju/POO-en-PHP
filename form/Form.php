@@ -25,7 +25,7 @@ class Form {
      * @param $html string Code html entouré
      * @return string
      */
-    private function surround($html) {
+    protected function surround($html) {
         return "<{$this->surround}>{$html}</{$this->surround}>";
     }
 
@@ -33,7 +33,7 @@ class Form {
      * @param $index string Index de la valeur à récupérer
      * @return string
      */
-    private function getValue($index) {
+    protected function getValue($index) {
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 

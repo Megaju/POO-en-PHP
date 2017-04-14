@@ -1,9 +1,9 @@
 <?php
 class Personnage {
     // attrivuts du personnage
-    public $life = 100;
-    public $life_max = 100;
-    public $atk = 20;
+    protected $life = 100;
+    protected $life_max = 100;
+    protected $atk = 20;
     public $name;
     // constructeur
     public function __construct($name) {
@@ -53,7 +53,7 @@ class Personnage {
         return $this->life <= 0;
     }
     // empêcher de voir la vie descendre en-dessous de 0
-    private function life_no_negatif() {
+    public function life_no_negatif() {
         if ($this->life < 0) {
             $this->life = 0;
         }

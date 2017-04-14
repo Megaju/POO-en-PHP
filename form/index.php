@@ -2,10 +2,11 @@
 
 include '../head.php';
 
-require 'form.php';
-require 'text.php';
+require 'Form.php';
+require 'BootstrapForm.php';
 
-$form = new Form(array(
+// FIRST FORM
+$form = new BootstrapForm(array(
     'username' => 'Megaju'
 ));
 
@@ -15,6 +16,7 @@ echo $form->input('username');
 echo $form->input('password');
 echo $form->submit();
 
+// SECOND FORM
 $form = new Form($_POST);
 
 ?>
@@ -28,5 +30,3 @@ echo $form->submit();
 </form>
 
 <?php
-
-echo Text::withZero(4);
