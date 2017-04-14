@@ -2,6 +2,7 @@
 
 include '../head.php';
 
-require 'Text.php';
+require '../class/Autoloader.php';
+Autoloader::register();
 
 echo Text::withZero(4);

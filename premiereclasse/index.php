@@ -1,8 +1,9 @@
 <?php
 
 include '../head.php';
-require 'Personnage.php';
-require 'MarvelHero.php';
+
+require '../class/Autoloader.php';
+Autoloader::register();
 
 // création de nos personnages
 $batman = new Personnage("Batman");
