@@ -2,8 +2,9 @@
 
 include '../head.php';
 
-require 'Form.php';
-require 'BootstrapForm.php';
+require '../class/Autoloader.php';
+Autoloader::register();
+
 
 // FIRST FORM
 $form = new BootstrapForm(array(
