@@ -1,4 +1,6 @@
 <?php
+use \Megaju\Text;
+use \Megaju\Autoloader;
 
 include '../head.php';
 

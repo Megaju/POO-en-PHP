@@ -1,10 +1,12 @@
 <?php
+use \Megaju\HTML\Form;
+use \Megaju\HTML\BootstrapForm;
+use \Megaju\Autoloader;
 
 include '../head.php';
 
 require '../class/Autoloader.php';
 Autoloader::register();
-
 
 // FIRST FORM
 $form = new BootstrapForm(array(

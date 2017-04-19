@@ -1,4 +1,5 @@
 <?php
+namespace Megaju\HTML;
 /**
  * Class BootstrapForm
  * Permet de créer des formulaires rapidement et simplement avec le style d'un formulaire Bootstrap.

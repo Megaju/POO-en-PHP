@@ -12,7 +12,9 @@
     </header>
     <nav>
         <ul>
-            <li><a href="testpersonnages.php">Personnages</a></li>
+            <li><a href="first_class">Personnages</a></li>
+            <li><a href="form">Création de formulaire</a></li>
+            <li><a href="static_const_example">Statique & Constante</a></li>
         </ul>
     </nav>
 </body>

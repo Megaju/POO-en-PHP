@@ -1,4 +1,5 @@
 <?php
+namespace Megaju;
 
 class MarvelHero extends Personnage {
 

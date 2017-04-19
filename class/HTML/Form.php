@@ -1,4 +1,5 @@
 <?php
+namespace Megaju\HTML;
 /**
  * Class Form
  * Permet de créer des formulaires rapidement et simplement

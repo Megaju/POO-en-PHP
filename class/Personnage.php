@@ -1,4 +1,6 @@
 <?php
+namespace Megaju;
+
 class Personnage {
     // attrivuts du personnage
     protected $life = 100;
