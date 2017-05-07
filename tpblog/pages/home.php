@@ -1,3 +1,10 @@
-<h1>Home Page</h1>
+<h1>Articles</h1>
 
-<p><a href="?p=single">Single Page</a></p>
+<ul>
+<?php foreach ($db->query('SELECT * FROM articles', 'App\Table\Article') as $post): ?>
+
+    <h2><a href="<?= $post->url ?>"><?= $post->title; ?></a></h2>
+    <p><?= $post->excerpt ?></p>
+
+<?php endforeach; ?>
+</ul>

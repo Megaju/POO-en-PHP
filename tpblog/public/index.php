@@ -10,6 +10,9 @@ if (isset($_GET['p'])) {
     $p = 'home';
 }
 
+// initialisation des objets
+$db = new App\Database('tpblog');
+
 ob_start();
 switch ($p) {
     case 'home' :
