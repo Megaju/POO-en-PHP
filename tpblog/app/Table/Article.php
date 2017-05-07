@@ -4,17 +4,15 @@ namespace App\Table;
 
 use App\App;
 
-class Article {
+class Article extends Table {
 
     public static function getLast() {
-        return App::getDb()->query("SELECT articles.id, articles.title, articles.content, articles.date, categories.title AS category FROM articles LEFT JOIN categories ON category_id = categories.id", __CLASS__);
-    }
-
-    // * * * fonction magique * * *
-    public function __get($key) {
-        $method = 'get' . ucfirst($key);
-        $this->$key = $this->$method();
-        return $this->$key;
+        return App::getDb()->query("
+          SELECT articles.id, articles.title, articles.content, articles.date, categories.title as category 
+          FROM articles 
+          LEFT JOIN categories 
+            ON category_id = categories.id
+        ", __CLASS__);
     }
 
     public function getUrl() {
