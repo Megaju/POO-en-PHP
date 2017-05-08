@@ -21,6 +21,9 @@ switch ($p) {
     case 'single' :
         require '../pages/single.php';
         break;
+    case 'category' :
+        require '../pages/category.php';
+        break;
 }
 $content = ob_get_clean();
 require '../pages/templates/default.php';

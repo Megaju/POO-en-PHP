@@ -7,12 +7,12 @@ use App\App;
 class Article extends Table {
 
     public static function getLast() {
-        return App::getDb()->query("
+        return self::query("
           SELECT articles.id, articles.title, articles.content, articles.date, categories.title as category 
           FROM articles 
           LEFT JOIN categories 
             ON category_id = categories.id
-        ", __CLASS__);
+        ");
     }
 
     public function getUrl() {
@@ -23,6 +23,16 @@ class Article extends Table {
         $html = '<p>' . substr($this->content, 0, 120) . '...</p>';
         $html .= '<p><a href=" ' . $this->getURL() . ' ">Voir la suite</a></p>';
         return $html;
+    }
+
+    public function lastByCategory($category_id) {
+        return self::query("
+          SELECT articles.id, articles.title, articles.content, articles.date, categories.title as category 
+          FROM articles 
+          LEFT JOIN categories 
+            ON category_id = categories.id
+          WHERE category_id = ?
+        ", [$category_id]);
     }
 
 }

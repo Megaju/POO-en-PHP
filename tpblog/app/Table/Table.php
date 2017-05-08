@@ -31,4 +31,20 @@ class Table {
         return $this->$key;
     }
 
+    public static function query($stat, $attr = null, $one = false) {
+        if ($attr) {
+            return App::getDb()->prepare($stat, $attr, get_called_class(), $one);
+        } else {
+            return App::getDb()->query($stat, get_called_class(), $one);
+        }
+    }
+
+    public static function find($id) {
+        return App::getDb()->prepare("
+          SELECT * 
+          FROM " . static::getTable() . "
+          WHERE id = ?
+        ", [$id], get_called_class(), true);
+    }
+
 }
